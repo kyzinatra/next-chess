@@ -41,8 +41,6 @@ export class ChessRoom extends Room<ChessState> {
 	}
 
 	onCreate(options: IChessRoomOptions) {
-		console.log("onCreate", options);
-
 		this.setState(new ChessState());
 		this.maxClients = 2;
 
@@ -53,7 +51,6 @@ export class ChessRoom extends Room<ChessState> {
 		this.onMessage(ROOM_ACTIONS.move, this.makeMove.bind(this));
 	}
 
-	// When client successfully join the room
 	onJoin(client: Client, options: IChessRoomOptions, isAuth?: boolean) {
 		if (!isAuth) {
 			client.error(403, "Forbidden");
@@ -74,11 +71,10 @@ export class ChessRoom extends Room<ChessState> {
 
 		this.sendBoard();
 		client.send(ROOM_ACTIONS.orientation, player.color);
-		console.log("onJoin", this.roomId, client.id, player.color);
 	}
 
 	// When a client leaves the room
-	async onLeave(client: Client, consented: boolean) {
+	async onLeave(client: Client) {
 		console.log("onLeave");
 		try {
 			await this.allowReconnection(client, 10);
@@ -87,8 +83,5 @@ export class ChessRoom extends Room<ChessState> {
 		}
 	}
 
-	// Cleanup callback, called after there are no more clients in the room. (see `autoDispose`)
-	onDispose() {
-		console.log("onDispose");
-	}
+	onDispose() {}
 }
