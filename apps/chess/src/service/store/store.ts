@@ -23,7 +23,7 @@ export const makeStore = () =>
 			rooms: roomsReducer,
 		},
 
-		devTools: process.env.NODE_ENV === "development",
+		devTools: false,
 		middleware: () => new Tuple(roomMiddleware("chess_room", ROOM_ACTIONS)),
 	});
 
