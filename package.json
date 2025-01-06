@@ -1,27 +1,28 @@
 {
-  "name": "my-turborepo",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.3",
-    "typescript": "5.5.4"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "npm@10.8.3",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "dependencies": {
-    "chess": "^0.1.0",
-    "use-local-storage": "^3.0.0"
-  }
+	"name": "my-turborepo",
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"backend": "cd ./apps/backend && npm start"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5",
+		"turbo": "^2.3.3",
+		"typescript": "5.5.4"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "npm@10.8.3",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"dependencies": {
+		"chess": "^0.1.0",
+		"use-local-storage": "^3.0.0"
+	}
 }
