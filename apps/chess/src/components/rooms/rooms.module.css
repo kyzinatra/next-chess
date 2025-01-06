@@ -1,0 +1,8 @@
+.rooms {
+	height: calc(100dvh - 70px);
+	margin: 35px 0;
+	gap: 2dvh;
+	padding: 0 15px;
+	display: flex;
+	flex-direction: column;
+}

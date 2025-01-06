@@ -1,0 +1,42 @@
+.square {
+	aspect-ratio: 1/1;
+	background-color: #739552;
+	display: flex;
+	align-items: center;
+	position: relative;
+	justify-content: center;
+}
+
+.square::after {
+	content: var(--square-content-letter);
+	bottom: 0;
+	right: 0.6vmin;
+	color: #fefff5;
+	position: absolute;
+	font-size: 1.9vmin;
+	font-weight: 600;
+}
+
+.square::before {
+	content: var(--square-content-number);
+	top: 0;
+	left: 0.6vmin;
+	color: #fefff5;
+	position: absolute;
+	font-size: 1.9vmin;
+	font-weight: 600;
+	z-index: 2;
+}
+
+.white {
+	background-color: #ebecd0;
+}
+
+.white::after,
+.white::before {
+	color: #34590f;
+}
+
+.over {
+	box-shadow: inset 0px 0px 5px 3px white;
+}

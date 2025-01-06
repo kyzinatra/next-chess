@@ -1,0 +1,22 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "tsx ./index.ts",
+		"dev": "nodemon --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"tsx ./index.ts\""
+	},
+	"dependencies": {
+		"chess.js": "^1.0.0-beta.8",
+		"colyseus": "^0.15.57",
+		"express": "^4.21.2",
+		"http-status-codes": "^2.3.0",
+		"tsx": "^4.19.2"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "*",
+		"@repo/constants": "*",
+		"@types/express": "^5.0.0",
+		"nodemon": "^3.1.9"
+	}
+}

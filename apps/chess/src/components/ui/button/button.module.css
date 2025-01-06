@@ -1,0 +1,14 @@
+.button {
+	background: #054478;
+	color: white;
+	font-family: inherit;
+	border: 1;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background 0.05s ease;
+}
+
+.button:active {
+	background: #055291;
+}

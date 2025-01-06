@@ -1,0 +1,11 @@
+{
+	"name": "@repo/constants",
+	"version": "0.0.0",
+	"private": true,
+	"exports": {
+		".": "./constants/index.ts",
+		"./types": "./types/index.ts"
+	},
+	"devDependencies": {},
+	"dependencies": {}
+}

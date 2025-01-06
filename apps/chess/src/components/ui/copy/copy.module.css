@@ -1,0 +1,14 @@
+.copy {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	cursor: pointer;
+	background: none;
+	border: none;
+	transform-origin: 50% 50%;
+	transition: transform 0.1s ease;
+}
+
+.copy:active {
+	transform: scale(1.1);
+}

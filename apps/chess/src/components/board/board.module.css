@@ -1,0 +1,17 @@
+.board {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(8, 1fr);
+	width: 95vmin;
+	height: 95vmin;
+	max-width: 100vw;
+	max-height: 100vh;
+}
+
+.board_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}

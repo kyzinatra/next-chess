@@ -1,0 +1,7 @@
+.piece {
+	user-select: none;
+	cursor: grab;
+	appearance: none;
+	user-drag: none;
+	-webkit-user-drag: none;
+}
