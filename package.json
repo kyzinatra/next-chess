@@ -21,6 +21,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "chess": "^0.1.0",
     "use-local-storage": "^3.0.0"
   }
 }

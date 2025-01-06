@@ -13,5 +13,6 @@ const gameServer = new Server({
 });
 
 gameServer.define("chess_room", ChessRoom);
+console.log("Run ", +process.env.PORT! || 2567);
 
 gameServer.listen(+process.env.PORT! || 2567);
