@@ -6,3 +6,9 @@
 	display: flex;
 	flex-direction: column;
 }
+@media (width <= 1200px) {
+	.rooms {
+		height: auto;
+		max-height: calc(100dvh - 70px);
+	}
+}
