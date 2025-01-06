@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import css from "./page.module.css";
 
 import { Board } from "@/components/board/board.component";
@@ -6,10 +8,12 @@ import { Rooms } from "@/components/rooms/rooms.component";
 
 export default async function Home() {
 	return (
-		<main className={css.main}>
-			<Rooms />
-			<Board />
-			<Moves />
-		</main>
+		<Suspense>
+			<main className={css.main}>
+				<Rooms />
+				<Board />
+				<Moves />
+			</main>
+		</Suspense>
 	);
 }
