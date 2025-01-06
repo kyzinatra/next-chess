@@ -4,7 +4,7 @@ import { Rooms } from "@components/rooms/rooms.component";
 import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
-import css from "./page.module.css";
+import css from "../styles/page.module.css";
 
 export default async function Home() {
 	return (
