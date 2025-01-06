@@ -1,4 +1,4 @@
-cd{
+{
 	"$schema": "https://turbo.build/schema.json",
 	"ui": "tui",
 	"globalEnv": ["NODE_ENV"],

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/style.css";
 
-export const dynamic = "force-dynamic";
 import { Provider } from "@/components/provider/provider.component";
 
 const inter = Inter({ weight: ["100", "400", "600", "800"], subsets: ["cyrillic", "latin"] });
