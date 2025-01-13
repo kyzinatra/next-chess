@@ -71,16 +71,20 @@ export class ChessRoom extends Room<ChessState> {
 
 		this.sendBoard();
 		client.send(ROOM_ACTIONS.orientation, player.color);
+		this.clock.setTimeout(() => {
+			this.broadcast(ROOM_ACTIONS.players, clientLength);
+		}, 0);
 	}
 
 	// When a client leaves the room
 	async onLeave(client: Client) {
 		console.log("onLeave");
-		try {
-			await this.allowReconnection(client, 10);
-		} catch {
-			this.state.players.delete(client.sessionId);
-		}
+
+		const clientLength = this.clients.length;
+		this.clock.setTimeout(() => {
+			this.broadcast(ROOM_ACTIONS.players, clientLength);
+		}, 0);
+		this.state.players.delete(client.sessionId);
 	}
 
 	onDispose() {}

@@ -12,3 +12,9 @@
 .button:active {
 	background: #055291;
 }
+
+.button:disabled,
+.button:disabled:active {
+	background: #517696;
+	cursor: not-allowed;
+}

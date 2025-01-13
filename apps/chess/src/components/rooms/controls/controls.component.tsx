@@ -11,9 +11,10 @@ import { useAppDispatch, useAppSelector } from "@/service/store/store";
 
 export const Controls = () => {
 	const dispatch = useAppDispatch();
-	const roomId = useAppSelector((s) => s.rooms.roomId);
+	const { roomId, isLoading, players } = useAppSelector((s) => s.rooms);
+	const isConnected = !!roomId;
+
 	const [state, setState] = useState<string>("");
-	const isConnected = useAppSelector((s) => !!s.rooms.roomId);
 
 	function onClick() {
 		dispatch(createRoom());
@@ -24,11 +25,17 @@ export const Controls = () => {
 	function onClickDisconnect() {
 		dispatch(disconnectRoom());
 	}
+	console.log(isConnected || isLoading);
 
 	return (
 		<div className={css.controls}>
 			<Copy className={css.copy}>{roomId || ""}</Copy>
-			<Button onClick={onClick}>Создать</Button>
+			<div className={css.create}>
+				<Button className={css.create_btn} onClick={onClick} disabled={isConnected || isLoading}>
+					Создать
+				</Button>
+				{!!players && <span>{players}/2</span>}
+			</div>
 			<div className={css.connect}>
 				{!isConnected && <Button onClick={onClickConnect}>Подключится</Button>}
 				{isConnected && <Button onClick={onClickDisconnect}>Отключится</Button>}

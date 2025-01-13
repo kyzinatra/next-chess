@@ -5,7 +5,7 @@ import { Room } from "colyseus.js";
 
 import { setBoard, setHistory, setOrientation, setTurn } from "../slices/board.slice";
 import { setLastMove } from "../slices/last-move.slice";
-import { setRoomId } from "../slices/rooms.slice";
+import { clearRoom, endLoading, setPlayers, setRoomId, startLoading } from "../slices/rooms.slice";
 
 import { getChessboard } from "@/utils/chess/get-chessboard";
 import { getRoomClient } from "@/utils/rooms/get-rooms-clients";
@@ -27,6 +27,7 @@ export const roomMiddleware: (roomName: string, actions: typeof ROOM_ACTIONS) =>
 		return (next) => (action) => {
 			if (createRoom.match(action) || joinRoom.match(action)) {
 				if (currentRoom) return;
+				api.dispatch(startLoading());
 				let roomPromise = null;
 
 				if (createRoom.match(action)) roomPromise = client.create(roomName, { color: "r" });
@@ -46,7 +47,9 @@ export const roomMiddleware: (roomName: string, actions: typeof ROOM_ACTIONS) =>
 					room.onMessage(actions.lastMove, (m: TField[]) => api.dispatch(setLastMove(m)));
 					room.onMessage(actions.orientation, (o: Color) => api.dispatch(setOrientation(o)));
 					room.onMessage(actions.history, (h: string[]) => api.dispatch(setHistory(h)));
+					room.onMessage(actions.players, (pl: number) => api.dispatch(setPlayers(pl)));
 				});
+				api.dispatch(endLoading());
 				return;
 			}
 
@@ -58,7 +61,7 @@ export const roomMiddleware: (roomName: string, actions: typeof ROOM_ACTIONS) =>
 			if (disconnectRoom.match(action)) {
 				currentRoom?.leave();
 				currentRoom = null;
-				api.dispatch(setRoomId(null));
+				api.dispatch(clearRoom());
 				return;
 			}
 			next(action);

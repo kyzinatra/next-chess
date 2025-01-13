@@ -5,4 +5,5 @@ export const ROOM_ACTIONS = {
 	orientation: "orientation",
 	history: "history",
 	lastMove: "lastMove",
+	players: "players",
 } as const;
